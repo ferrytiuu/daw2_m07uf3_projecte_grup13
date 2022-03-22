@@ -13,20 +13,18 @@ class CreateClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('apartaments', function (Blueprint $table) {
-            $table->string('codiApartament');
-            $table->primary('codiApartament');
-            $table->string('refCatastral');
+        Schema::create('clients', function (Blueprint $table) {
+            $table->string('dni');
+            $table->primary('dni');
+            $table->string('nomCognoms');
+            $table->integer('edat');
+            $table->integer('telefon');
+            $table->string('adreca');
             $table->string('ciutat');
-            $table->string('barri');
-            $table->string('nomCarrer');
-            $table->integer('numCarrer');
-            $table->integer('pis');
-            $table->integer('numLlits');
-            $table->integer('numHabitacions');
-            $table->boolean('ascensor');
-            $table->char('calefaccio');
-            $table->boolean('aireAcondicionat');
+            $table->string('pais');
+            $table->string('email');
+            $table->char('tipusTargeta');
+            $table->integer('numTargeta');
             $table->timestamps();
         });
     }
