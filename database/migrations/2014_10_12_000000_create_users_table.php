@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->char('tipusTreballador');
             $table->string('password');
-            $table->time('horaEntrada');
-            $table->time('horaSortida');
+            $table->time('horaEntrada')->nullable()->change();
+            $table->time('horaSortida')->nullable()->change();
             $table->rememberToken();
             $table->timestamps();
         });
