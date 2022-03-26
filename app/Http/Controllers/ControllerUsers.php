@@ -17,7 +17,7 @@ class ControllerUsers extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $email
+     * @param  string  $email
      * @return \Illuminate\Http\Response
      */
 
@@ -26,6 +26,25 @@ class ControllerUsers extends Controller
         $user = DB::table('users')->where('email', $email)->first();
         /*$user = User::findOrFail($email);*/
         return view('modificarUsuari', compact('user'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string $email
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $email)
+    {
+        $dades = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'password' => 'required',
+            'tipusTreballador' => ['required', 'string', 'max:1'],
+        ]);
+        User::whereId($email)->update($dades);
+        return redirect('/users')->with('completed', 'Usuari actualitzat');
     }
 
     /**
