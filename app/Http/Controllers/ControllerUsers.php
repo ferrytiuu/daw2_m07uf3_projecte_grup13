@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use DB;
+use PDF;
 
 class ControllerUsers extends Controller
 {
@@ -60,4 +61,9 @@ class ControllerUsers extends Controller
         $user->delete();
         return redirect('/users')->with('completed', 'Usuari esborrat');
     }
+
+    public function imprimir(){
+        $pdf = PDF::loadView('llistarUsuaris');
+        return $pdf->download('ejemplo.pdf');
+   }
 }
