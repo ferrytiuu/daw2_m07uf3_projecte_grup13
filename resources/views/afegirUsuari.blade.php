@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Modificar Usuaris') }}
+            {{ __('Llistar Usuaris') }}
         </h2>
     </x-slot>
 
@@ -12,7 +12,7 @@
                     <div class="mt-5">
                         <div class="card mt-5">
                             <div class="card-header">
-                                Actualització de dades
+                                Afegeix un nou usuari
                             </div>
 
                             <div class="card-body">
@@ -25,34 +25,32 @@
                                     </ul>
                                 </div>
                                 @endif
-                                <form method="post" action="{{ route('users.update', $user->email) }}">
+                                <form method="post" action="{{ route('users.store') }}">
                                     <div class="form-group">
                                         @csrf
-                                        @method('PATCH')
                                         <label for="name">Nom</label>
-                                        <input type="text" class="form-control" name="name" value="{{ $user->name }}" />
+                                        <input type="text" class="form-control" name="name" />
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="text" class="form-control" name="email" value="{{ $user->email }}" />
+                                        <input type="email" class="form-control" name="email" />
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Contrasenya</label>
-                                        <input type="password" class="form-control" name="password" value="{{ $user->password }}" />
+                                        <input type="password" class="form-control" name="password" />
                                     </div>
                                     <div class="form-group">
                                         <label for="tipusTreballador">Tipus d'usuari</label><br>
-                                        <input type="radio" name="tipusTreballador" value="{{ $user->tipusTreballador }}">
+                                        <input type="radio" name="tipusTreballador" value="C">
                                         <label for="C">C (cap)</label><br>
-                                        <input type="radio" name="tipusTreballador" value="{{ $user->tipusTreballador }}">
+                                        <input type="radio"name="tipusTreballador" value="N">
                                         <label for="N">N (normal)</label><br>
                                     </div>
-
-                                    <button type="submit" class="btn btn-block btn-danger">Actualitza</button>
+                                    <button type="submit" class="btn btn-block btn-primary">Envia</button>
                                 </form>
                             </div>
                         </div>
-                        <br><a href="{{ url('users') }}">Accés directe a la Llista d'usuaris</a>
+                        <br><a href="{{ url('users') }}">Accés directe a la Llista d'empleats</a>
                     </div>
                 </div>
             </div>

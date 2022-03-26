@@ -22,6 +22,30 @@ class ControllerUsers extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function create()
+    {
+        return view('afegirUsuari');
+    }
+
+    public function store(Request $request)
+    {
+        $nouUser = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'password' => 'required',
+            'tipusTreballador' => ['required', 'string', 'max:1'],
+        ]);
+        $user = User::create($nouUser);
+        return redirect('/users')->with('completed', 'Usuari creat!');
+    }
+
     public function edit($email)
     {
         $user = DB::table('users')->where('email', $email)->first();
@@ -36,6 +60,7 @@ class ControllerUsers extends Controller
      * @param  string $email
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $email)
     {
         $dades = $request->validate([
@@ -44,7 +69,7 @@ class ControllerUsers extends Controller
             'password' => 'required',
             'tipusTreballador' => ['required', 'string', 'max:1'],
         ]);
-        User::whereId($email)->update($dades);
+        User::whereEmail($email)->update($dades);
         return redirect('/users')->with('completed', 'Usuari actualitzat');
     }
 
@@ -61,9 +86,4 @@ class ControllerUsers extends Controller
         $user->delete();
         return redirect('/users')->with('completed', 'Usuari esborrat');
     }
-
-    public function imprimir(){
-        $pdf = PDF::loadView('llistarUsuaris');
-        return $pdf->download('ejemplo.pdf');
-   }
 }

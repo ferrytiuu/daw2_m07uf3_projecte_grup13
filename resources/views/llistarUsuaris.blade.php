@@ -43,6 +43,7 @@
                             </tbody>
                         </table>
                     </div>
+                    <br><a href="{{ url('users/create') }}">Accés directe a la vista de creació d'empleats</a>
 
 
 
