@@ -42,12 +42,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="tipusTreballador">Tipus d'usuari</label><br>
-                                        <input type="radio" name="tipusTreballador" value="{{ $user->tipusTreballador }}">
+                                        <input type="radio" name="tipusTreballador" value="C">
                                         <label for="C">C (cap)</label><br>
-                                        <input type="radio" name="tipusTreballador" value="{{ $user->tipusTreballador }}">
+                                        <input type="radio" name="tipusTreballador" value="N">
                                         <label for="N">N (normal)</label><br>
                                     </div>
-
                                     <button type="submit" class="btn btn-block btn-danger">Actualitza</button>
                                 </form>
                             </div>

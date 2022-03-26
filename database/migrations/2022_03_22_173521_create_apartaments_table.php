@@ -24,9 +24,9 @@ class CreateApartamentsTable extends Migration
             $table->integer('pis');
             $table->integer('numLlits');
             $table->integer('numHabitacions');
-            $table->boolean('ascensor');
-            $table->char('calefaccio');
-            $table->boolean('aireAcondicionat');
+            $table->String('ascensor');
+            $table->string('calefaccio');
+            $table->string('aireAcondicionat');
             $table->timestamps();
         });
     }

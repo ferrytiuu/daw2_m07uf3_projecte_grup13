@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ControllerUsers;
+use App\Http\Controllers\ControladorApartaments;
 use App\Http\Controllers\ControladorImpressio;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,8 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::resource('users', ControllerUsers::class);
+Route::resource('apartaments', ControladorApartaments::class);
+
 Route::get('/imprimirUsuaris', [ControladorImpressio::class, 'usuaris']);
 Route::get('/imprimirClients', [ControladorImpressio::class, 'clients']);
 Route::get('/imprimirApartaments', [ControladorImpressio::class, 'apartaments']);
