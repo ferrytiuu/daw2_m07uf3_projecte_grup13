@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Afegir Usuaris') }}
+            {{ __('Modificar Apartaments') }}
         </h2>
     </x-slot>
 
@@ -12,7 +12,7 @@
                     <div class="mt-5">
                         <div class="card mt-5">
                             <div class="card-header">
-                                Afegeix un nou usuari
+                                Actualització de dades
                             </div>
 
                             <div class="card-body">
@@ -30,39 +30,39 @@
                                         @csrf
                                         @method('PATCH')
                                         <label for="codiApartament">Codi de l'apartament</label>
-                                        <input type="text" class="form-control" name="codiApartament"  value="{{ $apartament->codiApartament }}"/>
+                                        <input type="text" class="form-control" name="codiApartament" value="{{ $apartament->codiApartament }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="refCatastral">Referència Catastral</label>
-                                        <input type="text" class="form-control" name="refCatastral" value="{{ $apartament->refCatastral }}"/>
+                                        <input type="text" class="form-control" name="refCatastral" value="{{ $apartament->refCatastral }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="ciutat">Ciutat</label>
-                                        <input type="text" class="form-control" name="ciutat" value="{{ $apartament->ciutat }}"/>
+                                        <input type="text" class="form-control" name="ciutat" value="{{ $apartament->ciutat }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="barri">Barri</label>
-                                        <input type="text" class="form-control" name="barri" value="{{ $apartament->barri }}"/>
+                                        <input type="text" class="form-control" name="barri" value="{{ $apartament->barri }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="nomCarrer">Nom del carrer</label>
-                                        <input type="text" class="form-control" name="nomCarrer" value="{{ $apartament->nomCarrer }}"/>
+                                        <input type="text" class="form-control" name="nomCarrer" value="{{ $apartament->nomCarrer }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="numCarrer">Número del carrer</label>
-                                        <input type="number" class="form-control" name="numCarrer" value="{{ $apartament->numCarrer }}"/>
+                                        <input type="number" class="form-control" name="numCarrer" value="{{ $apartament->numCarrer }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="pis">Pis</label>
-                                        <input type="number" class="form-control" name="pis" value="{{ $apartament->pis }}"/>
+                                        <input type="number" class="form-control" name="pis" value="{{ $apartament->pis }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="numLlits">Número de llits</label>
-                                        <input type="number" class="form-control" name="numLlits" value="{{ $apartament->numLlits }}"/>
+                                        <input type="number" class="form-control" name="numLlits" value="{{ $apartament->numLlits }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="numHabitacions">Número d'habitacions</label>
-                                        <input type="number" class="form-control" name="numHabitacions" value="{{ $apartament->numHabitacions }}"/>
+                                        <input type="number" class="form-control" name="numHabitacions" value="{{ $apartament->numHabitacions }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="ascensor">Ascensor?</label><br>

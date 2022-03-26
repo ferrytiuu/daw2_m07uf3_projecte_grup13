@@ -23,7 +23,7 @@ class CreateClientsTable extends Migration
             $table->string('ciutat');
             $table->string('pais');
             $table->string('email');
-            $table->char('tipusTargeta');
+            $table->string('tipusTargeta');
             $table->integer('numTargeta');
             $table->timestamps();
         });

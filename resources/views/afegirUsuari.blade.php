@@ -50,7 +50,7 @@
                                 </form>
                             </div>
                         </div>
-                        <br><a href="{{ url('users') }}">Accés directe a la Llista d'empleats</a>
+                        <br><a href="{{ url('users') }}">Accés directe a la llista d'usuari</a>
                     </div>
                 </div>
             </div>
