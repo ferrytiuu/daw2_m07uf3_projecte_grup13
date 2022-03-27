@@ -75,7 +75,7 @@ class DatabaseSeeder extends Seeder
         ]);
         
         DB::table('clients')->insert([
-            'dni' => '5170520582M',
+            'dni' => '51705282M',
             'nomCognoms' => 'Claúdia Tejedor',
             'edat' => '34',
             'telefon' => '628185156',
@@ -101,7 +101,7 @@ class DatabaseSeeder extends Seeder
         ]);
         
         DB::table('clients')->insert([
-            'dni' => '129936778R',
+            'dni' => '12996778R',
             'nomCognoms' => 'Ines Valdivia',
             'edat' => '47',
             'telefon' => '619735910',
