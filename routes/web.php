@@ -4,6 +4,7 @@ use App\Http\Controllers\ControllerUsers;
 use App\Http\Controllers\ControladorApartaments;
 use App\Http\Controllers\ControladorClients;
 use App\Http\Controllers\ControladorImpressio;
+use App\Http\Controllers\ControladorLloguers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', ControllerUsers::class);
     Route::resource('apartaments', ControladorApartaments::class);
     Route::resource('clients', ControladorClients::class);
+    Route::resource('lloguers', ControladorLloguers::class);
 
     Route::get('/imprimirUsuaris', [ControladorImpressio::class, 'usuaris']);
     Route::get('/imprimirClients', [ControladorImpressio::class, 'clients']);
