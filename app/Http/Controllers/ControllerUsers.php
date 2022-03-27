@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Hash;
 use DB;
 
 class ControllerUsers extends Controller
@@ -35,13 +37,19 @@ class ControllerUsers extends Controller
 
     public function store(Request $request)
     {
-        $nouUser = $request->validate([
+        $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255',
             'password' => 'required',
             'tipusTreballador' => ['required', 'string', 'max:1'],
         ]);
-        $user = User::create($nouUser);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'tipusTreballador' => $request->tipusTreballador,
+        ]);
+        event(new Registered($user));
         return redirect('/users')->with('completed', 'Usuari creat!');
     }
 
@@ -62,13 +70,18 @@ class ControllerUsers extends Controller
 
     public function update(Request $request, $email)
     {
-        $dades = $request->validate([
+        $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255',
             'password' => 'required',
             'tipusTreballador' => ['required', 'string', 'max:1'],
         ]);
-        User::whereEmail($email)->update($dades);
+        User::whereEmail($email)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'tipusTreballador' => $request->tipusTreballador,
+        ]);
         return redirect('/users')->with('completed', 'Usuari actualitzat');
     }
 

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Llistar Clients') }}
+            {{ __('Llistar Lloguers') }}
         </h2>
     </x-slot>
 
@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="mt-5">
-                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Llistat de clients</h2>
+                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Llistat de lloguer</h2>
                         <table class="table">
                             <thead>
                                 <tr class="table-primary">
@@ -49,6 +49,7 @@
                             </tbody>
                         </table>
                     </div>
+                    <br><a href="{{ url('lloguers/create') }}">Accés directe a la vista de creació de lloguers</a>
                 </div>
             </div>
         </div>

@@ -9,9 +9,6 @@
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
-
-
-
                 @if (auth()->check() && auth()->user()->tipusTreballador=='C')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="url('users')" :active="request()->routeIs('Usuari')">
@@ -19,11 +16,6 @@
                     </x-nav-link>
                 </div>
                 @endif
-
-
-
-
-
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="url('apartaments')" :active="request()->routeIs('Apartaments')">
                         {{ __('Apartaments') }}

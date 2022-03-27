@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Contrasenya</label>
-                                        <input type="password" class="form-control" name="password" />
+                                        <input type="password" class="form-control" name="password" pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$' placeholder="Mínim 1 majúsucla, 1 mínuscula, 1 nombre, 1 símbol (8 a 20 caràcters)"/>
                                     </div>
                                     <div class="form-group">
                                         <label for="tipusTreballador">Tipus d'usuari</label><br>

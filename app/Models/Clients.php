@@ -15,6 +15,7 @@ class Clients extends Model
     protected $primaryKey = 'dni';
     public $incrementing = false;
 
+
     /**
      * The attributes that are mass assignable.
      *
