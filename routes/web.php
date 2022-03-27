@@ -27,6 +27,10 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('/menu', function () {
+    return view('menu');
+})->name('menu');;
+
 Route::resource('users', ControllerUsers::class);
 Route::resource('apartaments', ControladorApartaments::class);
 Route::resource('clients', ControladorClients::class);
