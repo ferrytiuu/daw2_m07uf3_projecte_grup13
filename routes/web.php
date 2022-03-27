@@ -25,17 +25,18 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-Route::get('/menu', function () {
-    return view('menu');
-})->name('menu');;
 
-Route::resource('users', ControllerUsers::class);
-Route::resource('apartaments', ControladorApartaments::class);
-Route::resource('clients', ControladorClients::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/menu', function () {return view('menu');})->name('menu');;
 
-Route::get('/imprimirUsuaris', [ControladorImpressio::class, 'usuaris']);
-Route::get('/imprimirClients', [ControladorImpressio::class, 'clients']);
-Route::get('/imprimirApartaments', [ControladorImpressio::class, 'apartaments']);
-Route::get('/imprimirLloguers', [ControladorImpressio::class, 'lloguers']);
+    Route::resource('users', ControllerUsers::class);
+    Route::resource('apartaments', ControladorApartaments::class);
+    Route::resource('clients', ControladorClients::class);
+
+    Route::get('/imprimirUsuaris', [ControladorImpressio::class, 'usuaris']);
+    Route::get('/imprimirClients', [ControladorImpressio::class, 'clients']);
+    Route::get('/imprimirApartaments', [ControladorImpressio::class, 'apartaments']);
+    Route::get('/imprimirLloguers', [ControladorImpressio::class, 'lloguers']);
+});
