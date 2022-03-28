@@ -33,7 +33,6 @@ Route::middleware('auth')->group(function () {
     
     Route::group(['middleware' => ['auth', 'C']], function() {
         Route::resource('users', ControllerUsers::class);
-        Route::get('/imprimirUsuaris', [ControladorImpressio::class, 'usuaris']);
     });
     
     Route::get('/menu', function () {return view('menu');})->name('menu');;
@@ -41,7 +40,4 @@ Route::middleware('auth')->group(function () {
     Route::resource('clients', ControladorClients::class);
     Route::resource('lloguers', ControladorLloguers::class);
 
-    Route::get('/imprimirClients', [ControladorImpressio::class, 'clients']);
-    Route::get('/imprimirApartaments', [ControladorImpressio::class, 'apartaments']);
-    Route::get('/imprimirLloguers', [ControladorImpressio::class, 'lloguers']);
 });

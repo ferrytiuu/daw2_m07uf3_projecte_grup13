@@ -83,7 +83,6 @@ class ControllerUsers extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255',
-            'password' => 'required',
             'tipusTreballador' => ['required', 'string', 'max:1'],
         ]);
         User::whereEmail($email)->update([

@@ -62,9 +62,15 @@
                                     </div>
                                     <div class="form-group">
                                         <select class="form-select" aria-label="Default select example" name="tipusTargeta">
-                                            <option selected>Tipus de targeta</option>
-                                            <option value="Dèbit">Dèbit</option>
+                                            @if($client->tipusTargeta == 'Dèbit')
+                                            <option>Tipus de targeta</option>
+                                            <option selected value="Dèbit">Dèbit</option>
                                             <option value="Crèdit">Crèdit</option>
+                                            @else
+                                            <option >Tipus de targeta</option>
+                                            <option value="Dèbit">Dèbit</option>
+                                            <option selected value="Crèdit">Crèdit</option>
+                                            @endif
                                         </select>
                                     </div>
                                     <div class="form-group">

@@ -66,25 +66,51 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="ascensor">Ascensor?</label><br>
-                                        <input type="radio" name="ascensor" value="Sí">
+                                        @if($apartament->ascensor == 'Sí')
+                                        <input type="radio" name="ascensor" value="Sí" checked="checked">
                                         <label for="Sí">Sí</label><br>
                                         <input type="radio" name="ascensor" value="No">
                                         <label for="No">No</label><br>
+                                        @else
+                                        <input type="radio" name="ascensor" value="Sí">
+                                        <label for="Sí">Sí</label><br>
+                                        <input type="radio" name="ascensor" value="No" checked="checked">
+                                        <label for="No">No</label><br>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <select class="form-select" aria-label="Default select example" name="calefaccio">
-                                            <option selected>Tipus de calefacció</option>
-                                            <option value="Elèctrica">Elèctrica</option>
+                                            @if($apartament->calefaccio == 'Elèctrica')
+                                            <option>Tipus de calefacció</option>
+                                            <option selected value="Elèctrica">Elèctrica</option>
                                             <option value="Gas natural">Gas natural</option>
                                             <option value="Butà">Butà</option>
+                                            @elseif($apartament->calefaccio == 'Gas natural')
+                                            <option>Tipus de calefacció</option>
+                                            <option value="Elèctrica">Elèctrica</option>
+                                            <option selected value="Gas natural">Gas natural</option>
+                                            <option value="Butà">Butà</option>
+                                            @else
+                                            <option>Tipus de calefacció</option>
+                                            <option value="Elèctrica">Elèctrica</option>
+                                            <option value="Gas natural">Gas natural</option>
+                                            <option selected value="Butà">Butà</option>
+                                            @endif
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="ascensor">Aire acondicionat?</label><br>
-                                        <input type="radio" name="aireAcondicionat" value="Sí">
+                                        <label for="aireAcondicionat">Aire acondicionat?</label><br>
+                                        @if($apartament->aireAcondicionat == 'Sí')
+                                        <input type="radio" name="aireAcondicionat" value="Sí" checked="checked">
                                         <label for="Sí">Sí</label><br>
                                         <input type="radio" name="aireAcondicionat" value="No">
                                         <label for="No">No</label><br>
+                                        @else
+                                        <input type="radio" name="aireAcondicionat" value="Sí">
+                                        <label for="Sí">Sí</label><br>
+                                        <input type="radio" name="aireAcondicionat" value="No" checked="checked">
+                                        <label for="No">No</label><br>
+                                        @endif
                                     </div>
                                     <button type="submit" class="btn btn-block btn-primary">Actualitza</button>
                                 </form>
