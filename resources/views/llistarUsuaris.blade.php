@@ -43,7 +43,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <br><a href="{{ url('users/create') }}">Accés directe a la vista de creació d'usuaris</a>
+                    <br><a href="{{ url('users/create') }}">Accés directe a la vista de creació d'usuaris</a><br><br>
+                    <a href="{{ url('users/show')}}" class="btn btn-info btn-sm">Imprimeix a PDF</a>
                 </div>
             </div>
         </div>

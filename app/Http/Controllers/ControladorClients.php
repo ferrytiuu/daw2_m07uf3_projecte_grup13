@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Clients;
 use Illuminate\Http\Request;
 use DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ControladorClients extends Controller
 {
@@ -17,6 +18,14 @@ class ControladorClients extends Controller
     public function create()
     {
         return view('afegirClient');
+    }
+
+    public function show($clients)
+    {
+        $clients = Clients::all();
+        $pdf = PDF::loadView('clientsPdf', array('client' =>$clients));
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('clients.pdf');
     }
 
     public function store(Request $request)

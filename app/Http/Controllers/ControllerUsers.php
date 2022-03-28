@@ -6,14 +6,24 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
-use DB;
+use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ControllerUsers extends Controller
 {
+
     public function index()
     {
         $user = User::all();
         return view('llistarUsuaris', compact('user'));
+    }
+
+    public function show($users)
+    {
+        $users = User::all();
+        $pdf = PDF::loadView('usuarisPdf', array('user' =>$users));
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('usuaris.pdf');
     }
 
     /**
