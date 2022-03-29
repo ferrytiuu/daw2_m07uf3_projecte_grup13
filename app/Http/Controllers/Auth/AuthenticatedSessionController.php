@@ -7,6 +7,8 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -32,7 +34,21 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $email = auth()->user()->email;
+        date_default_timezone_set('Europe/Paris');
+        $time = date("H:i:s");
+        User::where('email', $email)->update(array('horaEntrada' => $time));
+
+        if (auth()->user()->tipusTreballador == 'N') {
+            $details = [
+                'usuari' => $email,
+                'data' => $time,
+            ];
+
+            Mail::to('provesgrup13@gmail.com')->send(new \App\Mail\loginMail($details));
+        }
+
+        return redirect('menu');
     }
 
     /**
@@ -43,12 +59,24 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
+
+        $email = auth()->user()->email;
+        date_default_timezone_set('Europe/Paris');
+        $time = date("H:i:s");
+        User::where('email', $email)->update(array('horaSortida' => $time));
+
+        if (auth()->user()->tipusTreballador == 'N') {
+            $details = [
+                'usuari' => $email,
+                'data' => $time,
+            ];
+
+            Mail::to('provesgrup13@gmail.com')->send(new \App\Mail\logoutMail($details));
+        }
+
         Auth::guard('web')->logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
         return redirect('/');
     }
 }

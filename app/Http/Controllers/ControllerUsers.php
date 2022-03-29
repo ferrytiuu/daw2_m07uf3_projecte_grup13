@@ -6,14 +6,26 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
-use DB;
+use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ControllerUsers extends Controller
 {
+
     public function index()
     {
         $user = User::all();
         return view('llistarUsuaris', compact('user'));
+    }
+
+    public function show($email)
+    {
+
+        $user = DB::table('users')->where('email', $email)->first();
+        /*$user = User::findOrFail($email);*/
+        $pdf = PDF::loadView('usuarisPdf', array('user' =>$user));
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('usuaris.pdf');
     }
 
     /**
@@ -73,7 +85,6 @@ class ControllerUsers extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255',
-            'password' => 'required',
             'tipusTreballador' => ['required', 'string', 'max:1'],
         ]);
         User::whereEmail($email)->update([

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Apartaments;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ControladorApartaments extends Controller
 {
@@ -12,6 +13,16 @@ class ControladorApartaments extends Controller
     {
         $apartament = Apartaments::all();
         return view('llistarApartaments', compact('apartament'));
+    }
+
+    public function show($codiApartament)
+    {
+
+        $apartament = DB::table('apartaments')->where('codiApartament', $codiApartament)->first();
+        /*$user = User::findOrFail($email);*/
+        $pdf = PDF::loadView('apartamentsPdf', array('apartament' =>$apartament));
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('apartaments.pdf');
     }
 
     /**

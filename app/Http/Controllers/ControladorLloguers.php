@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lloguers;
 use Illuminate\Http\Request;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ControladorLloguers extends Controller
 {
@@ -12,6 +12,14 @@ class ControladorLloguers extends Controller
     {
         $lloguer = Lloguers::all();
         return view('llistarLloguers', compact('lloguer'));
+    }
+
+    public function show($lloguers)
+    {
+        $lloguers = Lloguers::all();
+        $pdf = PDF::loadView('lloguersPdf', array('lloguer' => $lloguers));
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('lloguers.pdf');
     }
 
     /**

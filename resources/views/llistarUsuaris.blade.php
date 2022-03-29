@@ -31,6 +31,7 @@
                                     <td>{{$user->horaEntrada}} </td>
                                     <td>{{$user->horaSortida}} </td>
                                     <td class="text-left">
+                                        <a href="{{ route('users.show', $user->email)}}" class="btn btn-info btn-sm">PDF</a>
                                         <a href="{{ route('users.edit', $user->email)}}" class="btn btn-success btn-sm">Edita</a>
                                         <form action="{{ route('users.destroy', $user->email)}}" method="post" style="display: inline-block">
                                             @csrf
@@ -43,7 +44,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <br><a href="{{ url('users/create') }}">Accés directe a la vista de creació d'usuaris</a>
+                    <br><a href="{{ url('users/create') }}">Accés directe a la vista de creació d'usuaris</a><br><br>
+                    <a href="{{ url('users/show')}}" class="btn btn-info btn-sm">Imprimeix a PDF</a>
                 </div>
             </div>
         </div>

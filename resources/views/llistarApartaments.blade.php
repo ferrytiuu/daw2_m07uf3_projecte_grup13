@@ -45,6 +45,7 @@
                                     <td>{{$apartament->calefaccio}} </td>
                                     <td>{{$apartament->aireAcondicionat}} </td>
                                     <td class="text-left">
+                                        <a href="{{ route('apartaments.show', $apartament->codiApartament)}}" class="btn btn-info btn-sm">PDF</a>
                                         <a href="{{ route('apartaments.edit', $apartament->codiApartament)}}" class="btn btn-success btn-sm">Edita</a>
                                         <form action="{{ route('apartaments.destroy', $apartament->codiApartament)}}" method="post" style="display: inline-block">
                                             @csrf
@@ -57,7 +58,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <br><a href="{{ url('apartaments/create') }}">Accés directe a la vista de creació d'apartaments</a>
+                    <br><a href="{{ url('apartaments/create') }}">Accés directe a la vista de creació d'apartaments</a><br><br>
+                    <a href="{{ url('apartaments/show')}}" class="btn btn-info btn-sm">Imprimeix a PDF</a>
                 </div>
             </div>
         </div>

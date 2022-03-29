@@ -57,7 +57,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <br><a href="{{ url('lloguers/create') }}">Accés directe a la vista de creació de lloguers</a>
+                    <br><a href="{{ url('lloguers/create') }}">Accés directe a la vista de creació de lloguers</a><br><br>
+                    <a href="{{ url('lloguers/show')}}" class="btn btn-info btn-sm">Imprimeix a PDF</a>
                 </div>
             </div>
         </div>
