@@ -54,8 +54,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <br><a href="{{ url('clients/create') }}">Accés directe a la vista de creació de clients</a><br><br>
-                    <a href="{{ url('clients/show')}}" class="btn btn-info btn-sm">Imprimeix a PDF</a>
+                    <br><a href="{{ url('clients/create') }}">Accés directe a la vista de creació de clients</a>
                 </div>
             </div>
         </div>

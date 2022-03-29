@@ -58,8 +58,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <br><a href="{{ url('apartaments/create') }}">Accés directe a la vista de creació d'apartaments</a><br><br>
-                    <a href="{{ url('apartaments/show')}}" class="btn btn-info btn-sm">Imprimeix a PDF</a>
+                    <br><a href="{{ url('apartaments/create') }}">Accés directe a la vista de creació d'apartaments</a>
                 </div>
             </div>
         </div>
