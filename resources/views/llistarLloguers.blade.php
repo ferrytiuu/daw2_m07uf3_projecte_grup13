@@ -44,6 +44,14 @@
                                     <td>{{$lloguer->diposit}} </td>
                                     <td>{{$lloguer->quantitatDiposit}} </td>
                                     <td>{{$lloguer->tipusAsseguranca}} </td>
+                                    <td class="text-left">
+                                    <a href="{{ route('clients.edit', $client->dni)}}" class="btn btn-success btn-sm">Edita</a>
+                                    <form action="{{ route('lloguers.destroy', $lloguer->dni)}}" method="post" style="display: inline-block">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
+                                    </form>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
