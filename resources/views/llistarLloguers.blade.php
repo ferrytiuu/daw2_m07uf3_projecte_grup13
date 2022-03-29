@@ -45,7 +45,7 @@
                                     <td>{{$lloguer->quantitatDiposit}} </td>
                                     <td>{{$lloguer->tipusAsseguranca}} </td>
                                     <td class="text-left">
-                                    <a href="{{ route('clients.edit', $client->dni)}}" class="btn btn-success btn-sm">Edita</a>
+                                    <a href="{{ route('lloguers.edit', $lloguer->dni)}}" class="btn btn-success btn-sm">Edita</a>
                                     <form action="{{ route('lloguers.destroy', $lloguer->dni)}}" method="post" style="display: inline-block">
                                             @csrf
                                             @method('DELETE')
