@@ -25,44 +25,44 @@
                                     </ul>
                                 </div>
                                 @endif
-                                <form method="post" action="{{ route('lloguers.update', $lloguers->dni) }}">
+                                <form method="post" action="{{ route('lloguers.update', $lloguer->dniClient) }}">
                                     <div class="form-group">
                                         @csrf
                                         @method('PATCH')
                                         <label for="dniClient">DNI del client</label>
-                                        <input type="text" class="form-control" name="dniClient" value="{{ $lloguers->dniClient }}" />
+                                        <input type="text" class="form-control" name="dniClient" value="{{ $lloguer->dniClient }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="codiApartament">Codi de l'apartament</label>
-                                        <input type="text" class="form-control" name="codiApartament" value="{{ $lloguers->codiApartament }}" />
+                                        <input type="text" class="form-control" name="codiApartament" value="{{ $lloguer->codiApartament }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="dataInici">Data inici</label>
-                                        <input type="date" class="form-control" name="dataInici" value="{{ $lloguers->dataInici }}" />
+                                        <input type="date" class="form-control" name="dataInici" value="{{ $lloguer->dataInici }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="horaInici">Hora inici</label>
-                                        <input type="time" class="form-control" name="horaInici" value="{{ $lloguers->horaInici }}" />
+                                        <input type="time" class="form-control" name="horaInici" value="{{ $lloguer->horaInici }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="dataFinal">Data final</label>
-                                        <input type="date" class="form-control" name="dataFinal" value="{{ $lloguers->dataFinal }}" />
+                                        <input type="date" class="form-control" name="dataFinal" value="{{ $lloguer->dataFinal }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="horaFinal">Hora final</label>
-                                        <input type="time" class="form-control" name="horaFinal" value="{{ $lloguers->horaFinal }}" />
+                                        <input type="time" class="form-control" name="horaFinal" value="{{ $lloguer->horaFinal }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="llocLliurament">Lloc lliurament de les claus</label>
-                                        <input type="text" class="form-control" name="llocLliurament" value="{{ $lloguers->llocLliurament }}" />
+                                        <input type="text" class="form-control" name="llocLliurament" value="{{ $lloguer->llocLliurament }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="llocDevolucio">Lloc devolució de les claus</label>
-                                        <input type="text" class="form-control" name="llocDevolucio" value="{{ $lloguers->llocDevolucio }}" />
+                                        <input type="text" class="form-control" name="llocDevolucio" value="{{ $lloguer->llocDevolucio }}" />
                                     </div>
                                     <div class="form-group">
                                         <label for="preuDia">Preu per dia</label>
-                                        <input type="text" class="form-control" name="preuDia" value="{{ $lloguers->preuDia }}" />
+                                        <input type="text" class="form-control" name="preuDia" value="{{ $lloguer->preuDia }}" />
                                     </div>
                                     <div class="form-group">
                                     @if($lloguer->diposit == 'Sí')
@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="quantitatDiposit">Quantitat del dipòsit</label>
-                                        <input type="text" class="form-control" name="quantitatDiposit" placeholder="Deixar en buit si no s'ha fet dipòsit" value="{{ $lloguers->quantitatDiposit }}"/>
+                                        <input type="text" class="form-control" name="quantitatDiposit" placeholder="Deixar en buit si no s'ha fet dipòsit" value="{{ $lloguer->quantitatDiposit }}"/>
                                     </div>
                                     <div class="form-group">
                                         <select class="form-select" aria-label="Default select example" name="tipusAsseguranca">
@@ -90,7 +90,7 @@
                                             <option selected value="Franquícia fins a 1000 Euros">Franquícia fins a 1000 Euros</option>
                                             <option value="Franquícia fins a 500 Euros">Franquícia fins a 500 Euros</option>
                                             <option value="Sense franquícia">Sense franquícia</option>
-                                            @else if($lloguer->tipusAsseguranca == 'Franquícia fins a 500 Euros')
+                                            @elseif($lloguer->tipusAsseguranca == 'Franquícia fins a 500 Euros')
                                             <option>Tipus d'assegurança</option>
                                             <option value="Franquícia fins a 1000 Euros">Franquícia fins a 1000 Euros</option>
                                             <option selected value="Franquícia fins a 500 Euros">Franquícia fins a 500 Euros</option>

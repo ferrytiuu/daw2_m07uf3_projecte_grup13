@@ -26,8 +26,8 @@ class CreateLloguersTable extends Migration
             $table->string('llocLliurament');
             $table->string('llocDevolucio');
             $table->float('preuDia');
-            $table->string('diposit')->nullable();
-            $table->float('quantitatDiposit');  
+            $table->string('diposit');
+            $table->float('quantitatDiposit')->nullable();
             $table->string('tipusAsseguranca');
             $table->timestamps();
         });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Lloguers;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 
 class ControladorLloguers extends Controller
 {
@@ -60,7 +61,7 @@ class ControladorLloguers extends Controller
         return view('modificarLloguers', compact('lloguer'));
     }
 
-    public function update(Request $request, $email)
+    public function update(Request $request, $dni)
     {
         $dades = $request->validate([
             'dniClient' => 'required|max:255',
@@ -76,14 +77,13 @@ class ControladorLloguers extends Controller
             'quantitatDiposit' => 'max:255',
             'tipusAsseguranca' => 'required|max:255',
         ]);
-        Lloguers::whereDni($dni)->update($dades);
+        Lloguers::whereDniclient($dni)->update($dades);
         return redirect('/lloguers')->with('completed', 'Lloguer actualitzat');
     }
 
     public function destroy($dni)
     {
-        $lloguer = Lloguers::findOrFail($dni);
-        $lloguer->delete();
+        Lloguers::whereDniclient($dni)->delete();
         return redirect('/lloguers')->with('completed', 'Lloguer esborrat');
     }
 }
