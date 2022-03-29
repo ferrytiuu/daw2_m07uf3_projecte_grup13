@@ -31,6 +31,7 @@
                                     <td>{{$user->horaEntrada}} </td>
                                     <td>{{$user->horaSortida}} </td>
                                     <td class="text-left">
+                                        <a href="{{ route('users.show', $user->email)}}" class="btn btn-info btn-sm">PDF</a>
                                         <a href="{{ route('users.edit', $user->email)}}" class="btn btn-success btn-sm">Edita</a>
                                         <form action="{{ route('users.destroy', $user->email)}}" method="post" style="display: inline-block">
                                             @csrf

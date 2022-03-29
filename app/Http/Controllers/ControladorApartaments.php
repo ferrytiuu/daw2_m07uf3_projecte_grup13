@@ -15,10 +15,12 @@ class ControladorApartaments extends Controller
         return view('llistarApartaments', compact('apartament'));
     }
 
-    public function show($apartaments)
+    public function show($codiApartament)
     {
-        $apartamaments = Apartaments::all();
-        $pdf = PDF::loadView('apartamentsPdf', array('apartament' => $apartamaments));
+
+        $apartament = DB::table('apartaments')->where('codiApartament', $codiApartament)->first();
+        /*$user = User::findOrFail($email);*/
+        $pdf = PDF::loadView('apartamentsPdf', array('apartament' =>$apartament));
         $pdf->setPaper('A4', 'landscape');
         return $pdf->download('apartaments.pdf');
     }

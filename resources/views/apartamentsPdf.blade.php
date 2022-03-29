@@ -16,7 +16,6 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($apartament as $apartament)
         <tr>
             <td>{{$apartament->codiApartament}} </td>
             <td>{{$apartament->refCatastral}} </td>
@@ -31,6 +30,5 @@
             <td>{{$apartament->calefaccio}} </td>
             <td>{{$apartament->aireAcondicionat}} </td>
         </tr>
-        @endforeach
     </tbody>
 </table>

@@ -18,10 +18,12 @@ class ControllerUsers extends Controller
         return view('llistarUsuaris', compact('user'));
     }
 
-    public function show($users)
+    public function show($email)
     {
-        $users = User::all();
-        $pdf = PDF::loadView('usuarisPdf', array('user' =>$users));
+
+        $user = DB::table('users')->where('email', $email)->first();
+        /*$user = User::findOrFail($email);*/
+        $pdf = PDF::loadView('usuarisPdf', array('user' =>$user));
         $pdf->setPaper('A4', 'landscape');
         return $pdf->download('usuaris.pdf');
     }

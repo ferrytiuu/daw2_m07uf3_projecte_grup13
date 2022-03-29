@@ -14,7 +14,6 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($client as $client)
         <tr>
             <td>{{$client->dni}} </td>
             <td>{{$client->nomCognoms}} </td>
@@ -27,6 +26,5 @@
             <td>{{$client->tipusTargeta}} </td>
             <td>{{$client->numTargeta}} </td>
         </tr>
-        @endforeach
     </tbody>
 </table>

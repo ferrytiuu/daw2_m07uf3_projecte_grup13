@@ -49,7 +49,7 @@
                                         <label for="N">N (normal)</label><br>
                                         @else
                                         <label for="tipusTreballador">Tipus d'usuari</label><br>
-                                        <input type="radio" name="tipusTreballador" value="C" checked="checked">
+                                        <input type="radio" name="tipusTreballador" value="C" >
                                         <label for="C">C (cap)</label><br>
                                         <input type="radio" name="tipusTreballador" value="N" checked="checked">
                                         <label for="N">N (normal)</label><br>

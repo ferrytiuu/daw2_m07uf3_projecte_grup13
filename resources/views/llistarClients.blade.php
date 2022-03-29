@@ -41,6 +41,7 @@
                                     <td>{{$client->tipusTargeta}} </td>
                                     <td>{{$client->numTargeta}} </td>
                                     <td class="text-left">
+                                        <a href="{{ route('clients.show', $client->dni)}}" class="btn btn-info btn-sm">PDF</a>
                                         <a href="{{ route('clients.edit', $client->dni)}}" class="btn btn-success btn-sm">Edita</a>
                                         <form action="{{ route('clients.destroy', $client->dni)}}" method="post" style="display: inline-block">
                                             @csrf
