@@ -85,7 +85,7 @@
                                 </form>
                             </div>
                         </div>
-                        <br><a href="{{ url('lloguers') }}">Accés directe a la llista d'usuari</a>
+                        <br><a href="{{ url('lloguers') }}">Accés directe a la llista de lloguers</a>
                     </div>
                 </div>
             </div>

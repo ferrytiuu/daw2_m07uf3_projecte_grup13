@@ -16,7 +16,6 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($lloguer as $lloguer)
         <tr>
             <td>{{$lloguer->dniClient}} </td>
             <td>{{$lloguer->codiApartament}} </td>
@@ -31,6 +30,5 @@
             <td>{{$lloguer->quantitatDiposit}} </td>
             <td>{{$lloguer->tipusAsseguranca}} </td>
         </tr>
-        @endforeach
     </tbody>
 </table>

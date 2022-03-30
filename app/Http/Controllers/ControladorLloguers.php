@@ -6,6 +6,7 @@ use App\Models\Lloguers;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class ControladorLloguers extends Controller
 {
@@ -15,10 +16,12 @@ class ControladorLloguers extends Controller
         return view('llistarLloguers', compact('lloguer'));
     }
 
-    public function show($lloguers)
+    public function show($dniCodiApartament)
     {
-        $lloguers = Lloguers::all();
-        $pdf = PDF::loadView('lloguersPdf', array('lloguer' => $lloguers));
+
+        $resultats = json_decode($dniCodiApartament);
+        $lloguer = Lloguers::whereDniclient($resultats[0])->whereCodiapartament($resultats[1])->first();
+        $pdf = PDF::loadView('lloguersPdf', array('lloguer' =>$lloguer));
         $pdf->setPaper('A4', 'landscape');
         return $pdf->download('lloguers.pdf');
     }
@@ -55,9 +58,10 @@ class ControladorLloguers extends Controller
         return redirect('/lloguers')->with('completed', 'Lloguer creat!');
     }
 
-    public function edit($dni)
+    public function edit($dniCodiApartament)
     {
-        $lloguer = DB::table('lloguers')->where('dniClient', $dni)->first();
+        $resultats = json_decode($dniCodiApartament);
+        $lloguer = Lloguers::whereDniclient($resultats[0])->whereCodiapartament($resultats[1])->first();
         return view('modificarLloguers', compact('lloguer'));
     }
 
@@ -79,11 +83,12 @@ class ControladorLloguers extends Controller
         ]);
         Lloguers::whereDniclient($dni)->update($dades);
         return redirect('/lloguers')->with('completed', 'Lloguer actualitzat');
-    }
+    }   
 
-    public function destroy($dni)
+    public function destroy($dniCodiApartament)
     {
-        Lloguers::whereDniclient($dni)->delete();
+        $resultats = json_decode($dniCodiApartament);
+        Lloguers::whereDniclient($resultats[0])->whereCodiapartament($resultats[1])->delete();
         return redirect('/lloguers')->with('completed', 'Lloguer esborrat');
     }
 }

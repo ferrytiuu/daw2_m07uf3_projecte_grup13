@@ -21,8 +21,8 @@ class CreateLloguersTable extends Migration
             $table->primary(['dniClient','codiApartament']);
             $table->date('dataInici');
             $table->time('horaInici');
-            $table->date('dataFinal');
-            $table->time('horaFinal');
+            $table->date('dataFinal')->nullable();
+            $table->time('horaFinal')->nullable();
             $table->string('llocLliurament');
             $table->string('llocDevolucio');
             $table->float('preuDia');
