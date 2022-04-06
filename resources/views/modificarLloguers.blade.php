@@ -25,7 +25,7 @@
                                     </ul>
                                 </div>
                                 @endif
-                                <form method="post" action="{{ route('lloguers.update', $lloguer->dniClient) }}">
+                                <form method="post" action="{{ route('lloguers.update', json_encode([$lloguer->dniClient,$lloguer->codiApartament])) }}">
                                     <div class="form-group">
                                         @csrf
                                         @method('PATCH')

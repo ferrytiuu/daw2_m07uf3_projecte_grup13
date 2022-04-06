@@ -65,7 +65,7 @@ class ControladorLloguers extends Controller
         return view('modificarLloguers', compact('lloguer'));
     }
 
-    public function update(Request $request, $dni)
+    public function update(Request $request, $dniCodiApartament)
     {
         $dades = $request->validate([
             'dniClient' => 'required|max:255',
@@ -81,7 +81,8 @@ class ControladorLloguers extends Controller
             'quantitatDiposit' => 'max:255',
             'tipusAsseguranca' => 'required|max:255',
         ]);
-        Lloguers::whereDniclient($dni)->update($dades);
+        $resultats = json_decode($dniCodiApartament);
+        Lloguers::whereDniclient($resultats[0])->whereCodiapartament($resultats[1])->update($dades);
         return redirect('/lloguers')->with('completed', 'Lloguer actualitzat');
     }   
 
